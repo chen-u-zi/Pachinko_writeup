@@ -11,7 +11,10 @@
 給了完整源碼（Node.js + Express + PostgreSQL）。大部分 SQL 查詢都用參數化（`?`）很安全，**只有一個 `/secrets/create` 的 INSERT 用字串拼接 `'${content}'`** → SQL injection。因為首頁只給你看「自己的」secret，所以用子查詢把 admin 的 secret **複製進自己名下的一筆**，再正常讀出來拿 flag。
  
 ---
- 
+## 原始碼解壓縮
+```bash=
+tar -zxvf source.tar.gz
+```
 ## 1. 讀源碼找「贏的條件」
  
 `db.js` 直接告訴你 flag 在哪：
